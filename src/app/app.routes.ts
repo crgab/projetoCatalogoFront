@@ -4,6 +4,6 @@ import { ProdutoComponent } from './components/produto/produto';
 
 export const routes: Routes = [
     { path: 'categoria', component : CategoriaComponent },
-    { path: 'produto', component : ProdutoComponent },
+    { path: 'produto/:id', component : ProdutoComponent },
     { path: '**', redirectTo: 'categoria'}
 ];

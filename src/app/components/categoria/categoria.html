@@ -2,8 +2,8 @@
     @for(categoria of listaCategorias; track categoria){
         <li>    
             <a>     
-                <a [routerLink]="['/produto']">
-                    {{categoria.nome_categoria}}
+                <a [routerLink]="['/produto', categoria.id]">
+                    {{categoria.id}} - {{categoria.nome_categoria}}
                 </a>
             </a>
         </li>

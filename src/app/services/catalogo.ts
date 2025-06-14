@@ -17,4 +17,7 @@ export class CatalogoService {
   getProduto(): Observable<Produto[]>{
     return this.http.get<Produto[]>(`${this.urlbase}/produtos/`)
   }
+  getFiltered(categoria_id:string): Observable<Produto[]>{
+    return this.http.get<Produto[]>(`${this.urlbase}/produtos/?categoria=${categoria_id}`)
+  }
 }
