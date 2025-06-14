@@ -1,0 +1,22 @@
+<ul>
+    @for(categoria of listaCategorias; track categoria){
+        <li>    
+            <a>     
+                <a [routerLink]="['/produto']">
+                    {{categoria.nome_categoria}}
+                </a>
+            </a>
+        </li>
+    }
+</ul>
+
+<!-- <div class="sidenav">
+    <a href="#">Categoria</a>
+</div> -->  
+
+
+<!-- @for(categoria of listaCategorias; track categoria){
+    <div class="sidenav">
+        <li class="sidenav"> {{categoria.nome_categoria}}</li>
+    </div>
+} -->

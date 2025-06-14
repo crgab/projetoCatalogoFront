@@ -1,0 +1,8 @@
+<ul>
+    @for(produto of listaProduto; track produto){
+        @if(produto.categoria == 1){
+            <li>{{produto.descricao}}</li>
+        }
+    }
+</ul>
+
