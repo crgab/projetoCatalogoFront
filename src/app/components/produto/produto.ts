@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { Produto, Categoria } from '../../interfaces/Catalogo';
+import { Produto } from '../../interfaces/Catalogo';
 import { CatalogoService } from '../../services/catalogo';
+import { CategoriaComponent } from '../categoria/categoria';
 
 @Component({
   selector: 'app-produto',
@@ -13,6 +14,7 @@ export class ProdutoComponent {
   private catalogoService : CatalogoService = inject(CatalogoService);
     listaProduto: Produto[] = [];
     novoProduto: Partial<Produto> = {descricao:'', marca: '', preco: 0, categoria: 0, imagem: ''};
+    
 
     ngOnInit() : void{
         this.catalogoService.getProduto()
