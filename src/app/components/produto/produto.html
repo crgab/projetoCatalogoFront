@@ -1,6 +1,7 @@
-<ul>
-    @for (produto of listaProduto; track produto.id) {
+<ul> 
+    @for (produto of listaProduto(); track produto.id) {
         <li>{{ produto.descricao }}</li>
     }
 </ul>
+
 

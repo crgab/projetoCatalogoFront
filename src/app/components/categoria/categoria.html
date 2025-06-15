@@ -1,22 +1,9 @@
 <ul>
-    @for(categoria of listaCategorias; track categoria){
+    @for(categoria of listaCategoria(); track categoria){
         <li>    
-            <a>     
-                <a [routerLink]="['/produto', categoria.id]">
-                    {{categoria.id}} - {{categoria.nome_categoria}}
-                </a>
+            <a [routerLink]="['/produto', categoria.id]">
+                {{categoria.id}} - {{categoria.nome_categoria}}
             </a>
         </li>
     }
 </ul>
-
-<!-- <div class="sidenav">
-    <a href="#">Categoria</a>
-</div> -->  
-
-
-<!-- @for(categoria of listaCategorias; track categoria){
-    <div class="sidenav">
-        <li class="sidenav"> {{categoria.nome_categoria}}</li>
-    </div>
-} -->

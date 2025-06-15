@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal, effect } from '@angular/core';
 import { Categoria } from '../../interfaces/Catalogo';
 import { CatalogoService } from '../../services/catalogo';
 import { RouterLink } from '@angular/router';
@@ -12,18 +12,30 @@ import { RouterLink } from '@angular/router';
 })
 export class CategoriaComponent {
   private catalogoService : CatalogoService = inject(CatalogoService);
-  listaCategorias: Categoria[] = []
-  novaCategoria: Partial<Categoria> = {nome_categoria:''}
+  // listaCategorias: Categoria[] = []
+  // novaCategoria: Partial<Categoria> = {nome_categoria:''}
+  listaCategoria = signal<Categoria[]>([]);
 
-  ngOnInit() : void{
-    this.catalogoService.getCategoria()
-      .subscribe({
-        next: (response: Categoria[]) => {
-          this.listaCategorias = response;
-        },
-        error: (err) => {
-          console.error(`Erro ao carregar categorias`, err);
-        }
-      });
-  }
+  private loadEffect = effect(() => {
+    this.catalogoService.getCategoria().subscribe({
+      next: (categorias) => {
+        this.listaCategoria.set(categorias);
+      },
+      error: (err) => {
+        console.error('[DEBUG] Erro ao carregar categorias', err);
+      }
+    });
+  });
+
+  // ngOnInit() : void{
+  //   this.catalogoService.getCategoria()
+  //     .subscribe({
+  //       next: (response: Categoria[]) => {
+  //         this.listaCategorias = response;
+  //       },
+  //       error: (err) => {
+  //         console.error(`Erro ao carregar categorias`, err);
+  //       }
+  //     });
+  // }
 }
