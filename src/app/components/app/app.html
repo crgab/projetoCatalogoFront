@@ -1,5 +1,13 @@
-<nav>
-    <a [routerLink]="['/categoria']">categoria</a>
-</nav>
-<hr />
-<router-outlet></router-outlet>
+<header class="app-header">
+  <h1>Catálogo de Produtos</h1>
+</header>
+
+<ul>
+  <li><a [routerLink]="['/categoria']">Categoria</a></li>
+  |
+  <li><a [routerLink]="['/adicionarProd']">Adicionar produto</a></li>
+</ul>
+
+<main class="app-main">
+  <router-outlet></router-outlet>
+</main>

@@ -8,6 +8,6 @@ export interface Produto {
     descricao: string;
     marca: string;
     preco: number;
-    categoria: number;
+    categoria: number | null;
     imagem: string;
-}
+}       

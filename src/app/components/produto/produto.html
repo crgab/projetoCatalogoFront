@@ -1,7 +1,61 @@
-<ul> 
-    @for (produto of listaProduto(); track produto.id) {
-        <li>{{ produto.descricao }}</li>
-    }
-</ul>
 
+<!-- <div class="produto-container">
+    <h2>Produtos</h2>
 
+    <ul> 
+        <div class="horizontal-list">
+            <div class="produto-grid">      
+                @for (produto of listaProduto(); track produto.id) {
+                    <div class="produto-card">
+                        <img [src]="produto.imagem" alt="{{produto.imagem}}" class="produto-img"/>
+                        <li>{{ produto.descricao }}</li>
+                        <p><strong>Marca:</strong> {{ produto.marca }} </p>
+                        <p><strong>Preço:</strong> R${{ produto.preco.toFixed(2) }}</p>
+                    </div>
+                }
+            </div>
+        </div>
+    </ul>      
+    
+</div> -->
+
+<!-- <div class="formulario-produto">
+  <input type="text" [(ngModel)]="descricaoProduto" placeholder="Descrição" />
+  <input type="text" [(ngModel)]="marcaProduto" placeholder="Marca" />
+  <input type="number" [(ngModel)]="precoProduto" placeholder="Preço" />
+  <input type="number" [(ngModel)]="categoriaProduto" placeholder="ID da Categoria" />
+  <input type="text" [(ngModel)]="imagemProduto" placeholder="URL da Imagem" />
+  <button (click)="adicionarProduto()">Adicionar Produto</button>
+</div> -->
+
+<!-- <ul>
+  @for(produto of listaProduto(); track produto) {
+    <li>
+      {{produto.descricao}} - {{produto.marca}} - R$ {{produto.preco}}
+      <button (click)="removerProduto(produto.id)">Remover</button>
+    </li>
+  }
+</ul> -->
+
+<div class="produto-container">
+    <h2>Produtos</h2>
+
+    <ul> 
+        <div class="horizontal-list">
+            <div class="produto-grid">      
+                @for (produto of listaProduto(); track produto.id) {
+                    <div class="produto-card">
+                        <img [src]="produto.imagem" alt="{{produto.imagem}}" class="produto-img"/>
+                        <li>{{ produto.descricao }}</li>
+                        <p><strong>Marca:</strong> {{ produto.marca }} </p>
+                        @if(produto.preco != null){
+                            <p><strong>Preço:</strong> R${{ produto.preco.toFixed(2) }}</p>
+                        }
+                        
+                    </div>
+                }
+            </div>
+        </div>
+    </ul>      
+    
+</div>

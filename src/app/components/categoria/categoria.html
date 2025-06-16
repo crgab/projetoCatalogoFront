@@ -1,9 +1,36 @@
-<ul>
-    @for(categoria of listaCategoria(); track categoria){
-        <li>    
-            <a [routerLink]="['/produto', categoria.id]">
-                {{categoria.id}} - {{categoria.nome_categoria}}
-            </a>
-        </li>
+<!-- <div class="categoria-container">
+    <ul>
+        <div class="categoria-list">
+            @for(categoria of listaCategoria(); track categoria){
+                <li>    
+                    <a [routerLink]="['/produto', categoria.id]">
+                        {{categoria.id}} - {{categoria.nome_categoria}}
+                    </a>
+                </li>
+            }
+        </div>
+    </ul>
+</div> -->
+
+<div class="categoria-container">
+  <h2>Categorias</h2>
+
+  <!-- Formulário para adicionar nova categoria -->
+  <div class="categoria-form">
+    <input type="text" placeholder="Nova categoria" [(ngModel)]="novaCategoria"/>
+   
+    <button (click)="adicionarCategoria()">Adicionar</button>
+  </div>
+
+  <!-- Lista de categorias -->
+  <ul class="categoria-list">
+    @for (categoria of listaCategoria(); track categoria.id) {
+      <li>
+        <a [routerLink]="['/produto', categoria.id]">
+          {{ categoria.nome_categoria }}
+        </a>
+        <button class="remover" (click)="removerCategoria(categoria.id)">🗑</button>
+      </li>
     }
-</ul>
+  </ul>
+</div>

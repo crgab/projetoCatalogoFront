@@ -1,0 +1,32 @@
+<div class="formulario-produto">
+  <input type="text" [(ngModel)]="descricaoProduto" placeholder="Descrição" />
+  <input type="text" [(ngModel)]="marcaProduto" placeholder="Marca" />
+  <input type="number" [(ngModel)]="precoProduto" placeholder="Preço" />
+  <select [(ngModel)]="categoriaProduto">
+    <option value="" disabled selected hidden>Selecione uma categoria</option>
+    @for(categoria of listaCategoria(); track categoria){
+         <option [value]="categoria.id">{{ categoria.nome_categoria }}</option>
+    }
+    
+  </select>
+  <input type="text" [(ngModel)]="imagemProduto" placeholder="URL da Imagem" />
+  <button (click)="adicionarProduto()">Adicionar Produto</button>
+</div>
+
+<div class="produto-container">
+    <ul> 
+        <div class="horizontal-list">
+            <div class="produto-grid">      
+                @for (produto of listaProduto(); track produto.id) {
+                    <div class="produto-card">
+                        <img [src]="produto.imagem" alt="{{produto.imagem}}" class="produto-img"/>
+                        <li>{{ produto.descricao }}</li>
+                        <p><strong>Marca:</strong> {{ produto.marca }} </p>
+                        <p><strong>Preço:</strong> R${{ produto.preco.toFixed(2) }}</p>
+                    </div>
+                }
+            </div>
+        </div>
+    </ul>      
+    
+</div>
