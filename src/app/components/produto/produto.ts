@@ -117,19 +117,19 @@ export class ProdutoComponent {
 //     });
 //   }
 
-//   removerProduto(id: number) {
-//   if (!confirm('Tem certeza que deseja excluir este produto?')) return;
+  removerProduto(id: number) {
+  if (!confirm('Tem certeza que deseja excluir este produto?')) return;
 
-//   this.catalogoService.deleteProduto(id).subscribe({
-//     next: () => {
-//       console.log('[DEBUG] Produto removido');
-//       this.listaProduto.update((lista) => lista.filter(p => p.id !== id));
-//     },
-//     error: (err) => {
-//       console.error('[DEBUG] Erro ao remover produto', err);
-//     }
-//   });
-// }
+  this.catalogoService.deleteProduto(id).subscribe({
+    next: () => {
+      console.log('[DEBUG] Produto removido');
+      this.listaProduto.update((lista) => lista.filter(p => p.id !== id));
+    },
+    error: (err) => {
+      console.error('[DEBUG] Erro ao remover produto', err);
+    }
+  });
+}
 
 
 } 

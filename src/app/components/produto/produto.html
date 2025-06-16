@@ -50,7 +50,9 @@
                         <p><strong>Marca:</strong> {{ produto.marca }} </p>
                         @if(produto.preco != null){
                             <p><strong>Preço:</strong> R${{ produto.preco.toFixed(2) }}</p>
+                             <button (click)="removerProduto(produto.id)">Remover Produto</button>
                         }
+                       
                         
                     </div>
                 }
